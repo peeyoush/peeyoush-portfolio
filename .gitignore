@@ -29,3 +29,14 @@ dist-ssr
 
 # Local archive files
 /src.zip
+
+
+# Python backend
+backend/.venv/
+backend/.venev/
+backend/.env
+backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
