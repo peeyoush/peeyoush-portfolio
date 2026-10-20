@@ -10,6 +10,7 @@ import Contact from "../sections/Contact/Contact.jsx";
 function Home() {
   const [heroAnimationKey, setHeroAnimationKey] = useState(0);
   const [aboutFlightReplayKey, setAboutFlightReplayKey] = useState(0);
+  const [projectsReplayKey, setProjectsReplayKey] = useState(0);
 
   function replayHeroAnimation() {
     setHeroAnimationKey((currentKey) => currentKey + 1);
@@ -19,17 +20,22 @@ function Home() {
     setAboutFlightReplayKey((currentKey) => currentKey + 1);
   }
 
+  function replayProjectsAnimation() {
+    setProjectsReplayKey((currentKey) => currentKey + 1);
+  }
+
   return (
     <div>
       <Navbar
         onHomeClick={replayHeroAnimation}
         onAboutClick={replayAboutFlightAnimation}
+        onProjectsClick={replayProjectsAnimation}
       />
 
       <Hero key={heroAnimationKey} />
       <About flightReplayKey={aboutFlightReplayKey} />
       <Skills />
-      <Projects />
+      <Projects replayKey={projectsReplayKey} />
       <Contact />
     </div>
   );

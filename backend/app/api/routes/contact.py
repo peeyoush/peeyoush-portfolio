@@ -1,8 +1,9 @@
 
 import logging
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Request, status
 
+from app.core.limiter import limiter
 from app.schemas.contact import ContactRequest, ContactResponse
 from app.services.email_service import (
     EmailJSConfigurationError,
@@ -21,10 +22,18 @@ router = APIRouter(prefix="/contact", tags=["contact"])
     response_model=ContactResponse,
     status_code=status.HTTP_200_OK,
 )
+@limiter.limit("5/minute")
 async def submit_contact_message(
+    request: Request,
     contact: ContactRequest,
 ) -> ContactResponse:
     """Validate and submit a portfolio contact message."""
+    # Honeypot: silently accept the request without sending an email.
+    if contact.website.strip():
+        return ContactResponse(
+            status="accepted",
+            message="Your message has been submitted successfully.",
+        )
 
     try:
         await send_contact_email(contact)

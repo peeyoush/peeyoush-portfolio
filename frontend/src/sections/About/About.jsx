@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-
+import SectionLabel from "../../components/common/SectionLabel";
 import AboutStory from "./AboutStory.jsx";
 import JourneyMap from "./JourneyMap.jsx";
 

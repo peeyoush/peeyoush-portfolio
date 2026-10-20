@@ -9,7 +9,7 @@ const navigationLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-function Navbar({ onHomeClick, onAboutClick }) {
+function Navbar({ onHomeClick, onAboutClick, onProjectsClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
@@ -31,6 +31,10 @@ function Navbar({ onHomeClick, onAboutClick }) {
 
     if (link.href === "#about") {
       onAboutClick?.();
+    }
+
+    if (link.href === "#projects") {
+      onProjectsClick?.();
     }
   }
 

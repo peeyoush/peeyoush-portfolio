@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import SectionLabel from "../../components/common/SectionLabel";
 // Replace this placeholder with your public contact email.
 const CONTACT_EMAIL = "peeyoush1215@gmail.com";
 const API_BASE_URL = (
@@ -10,6 +10,7 @@ const initialFormData = {
   email: "",
   topic: "",
   message: "",
+  website: "",
 };
 
 function Contact() {
@@ -103,6 +104,7 @@ function Contact() {
           email: formData.email.trim(),
           topic: formData.topic,
           message: formData.message.trim(),
+          website: formData.website,
         }),
       });
 
@@ -158,9 +160,7 @@ function Contact() {
             HAVE SOMETHING IN MIND?
           </p>
 
-          <h2 className="bg-gradient-to-r from-orange-400 via-orange-500 to-red-600 bg-clip-text text-4xl font-light tracking-tight text-transparent sm:text-5xl lg:text-6xl">
-            Let's Connect
-          </h2>
+          <SectionLabel> Lets Connect</SectionLabel>
 
           <div className="mx-auto mt-4 h-[3px] w-14 rounded-full bg-gradient-to-r from-orange-500 to-red-600" />
 
@@ -224,6 +224,17 @@ function Contact() {
             {/* Contact form */}
             <div className="p-5 sm:p-8">
               <form onSubmit={handleSubmit} noValidate>
+                {/* Honeypot field: real visitors should leave this empty. */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute left-[-10000px] h-px w-px overflow-hidden"
+                />
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {/* Name */}
                   <div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import SectionLabel from "../../components/common/SectionLabel";
 import {
   siC,
   siCss,
@@ -280,11 +280,8 @@ function Skills() {
       <div className="relative z-10 mx-auto w-full max-w-4xl">
         {/* Section title */}
         <div className="mb-8 text-center sm:mb-10">
-          <h2 className="bg-gradient-to-r from-orange-400 via-orange-500 to-red-600 bg-clip-text text-4xl font-light tracking-tight text-transparent sm:text-5xl lg:text-6xl">
-            Skills...
-          </h2>
-
-          <div className="mx-auto mt-3 h-[3px] w-14 rounded-full bg-gradient-to-r from-orange-500 to-red-600" />
+          <SectionLabel>Skills</SectionLabel>
+          <div className="mx-auto mt-4 h-[3px] w-14 rounded-full bg-gradient-to-r from-orange-500 to-red-600" />
         </div>
 
         {/* The rows have separate directions, speeds, and starting offsets. */}

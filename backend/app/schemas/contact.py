@@ -24,6 +24,9 @@ class ContactRequest(BaseModel):
     topic: ContactTopic
     message: str = Field(min_length=20, max_length=2000)
 
+    # Honeypot field: legitimate visitors should leave this empty.
+    website: str = Field(default="", max_length=200)
+
 
 class ContactResponse(BaseModel):
     status: Literal["accepted"]

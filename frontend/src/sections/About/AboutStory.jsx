@@ -1,3 +1,4 @@
+import SectionLabel from "../../components/common/SectionLabel";
 function AboutStory() {
   return (
     <div className="relative bg-gradient-to-b from-[#080808] to-[#090807] px-5 pb-6 pt-0 sm:px-7 sm:pb-7 lg:px-8 lg:pb-8">
@@ -7,9 +8,7 @@ function AboutStory() {
           A little about my journey
         </p>
 
-        <h2 className="bg-gradient-to-r from-orange-400 via-orange-500 to-red-600 bg-clip-text text-4xl font-light tracking-tight text-transparent sm:text-5xl lg:text-6xl">
-          About Me
-        </h2>
+        <SectionLabel>About me </SectionLabel>
 
         <div className="mt-2.5 h-[3px] w-14 rounded-full bg-gradient-to-r from-orange-500 to-red-600" />
       </div>
