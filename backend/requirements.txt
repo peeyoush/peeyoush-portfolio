@@ -1,8 +1,9 @@
+
 fastapi
 uvicorn[standard]
 pydantic-settings
 python-dotenv
 email-validator
+slowapi
 httpx
 pytest
-httpx2
